@@ -1,0 +1,175 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e59f8e1839dbe344a19b3e2fee7dcea, type: 3}
+  m_Name: LevelDatabase
+  m_EditorClassIdentifier: 
+  levels:
+  - level: 1
+    stoveCount: 3
+    lockedByItem: 0
+    lockedByCoin: 0
+    totalItem: 9
+    unlockItems: 010000000200000003000000
+    shipperRate: 0
+    playTime: 0
+  - level: 2
+    stoveCount: 4
+    lockedByItem: 0
+    lockedByCoin: 0
+    totalItem: 15
+    unlockItems: 0400000005000000
+    shipperRate: 0
+    playTime: 300
+  - level: 3
+    stoveCount: 5
+    lockedByItem: 1
+    lockedByCoin: 0
+    totalItem: 21
+    unlockItems: 0600000007000000
+    shipperRate: 0
+    playTime: 300
+  - level: 4
+    stoveCount: 6
+    lockedByItem: 1
+    lockedByCoin: 0
+    totalItem: 27
+    unlockItems: 0800000009000000
+    shipperRate: 0
+    playTime: 300
+  - level: 5
+    stoveCount: 6
+    lockedByItem: 1
+    lockedByCoin: 1
+    totalItem: 33
+    unlockItems: 0a0000000b000000
+    shipperRate: 0
+    playTime: 300
+  - level: 7
+    stoveCount: 9
+    lockedByItem: 1
+    lockedByCoin: 1
+    totalItem: 39
+    unlockItems: 0c0000000d000000
+    shipperRate: 0.05
+    playTime: 300
+  - level: 7
+    stoveCount: 7
+    lockedByItem: 1
+    lockedByCoin: 1
+    totalItem: 45
+    unlockItems: 0e0000000f000000
+    shipperRate: 0.08
+    playTime: 300
+  - level: 8
+    stoveCount: 8
+    lockedByItem: 2
+    lockedByCoin: 1
+    totalItem: 102
+    unlockItems: 1000000011000000
+    shipperRate: 0.11
+    playTime: 300
+  - level: 9
+    stoveCount: 8
+    lockedByItem: 2
+    lockedByCoin: 1
+    totalItem: 114
+    unlockItems: 1200000013000000
+    shipperRate: 0.14
+    playTime: 300
+  - level: 10
+    stoveCount: 9
+    lockedByItem: 2
+    lockedByCoin: 1
+    totalItem: 126
+    unlockItems: 1400000015000000
+    shipperRate: 0.17
+    playTime: 300
+  - level: 11
+    stoveCount: 9
+    lockedByItem: 2
+    lockedByCoin: 1
+    totalItem: 138
+    unlockItems: 1600000017000000
+    shipperRate: 0.2
+    playTime: 300
+  - level: 12
+    stoveCount: 10
+    lockedByItem: 2
+    lockedByCoin: 1
+    totalItem: 150
+    unlockItems: 1800000019000000
+    shipperRate: 0.22999999
+    playTime: 300
+  - level: 13
+    stoveCount: 10
+    lockedByItem: 2
+    lockedByCoin: 1
+    totalItem: 162
+    unlockItems: 1a0000001b000000
+    shipperRate: 0.26
+    playTime: 300
+  - level: 14
+    stoveCount: 11
+    lockedByItem: 3
+    lockedByCoin: 1
+    totalItem: 174
+    unlockItems: 1c0000001d000000
+    shipperRate: 0.29
+    playTime: 300
+  - level: 15
+    stoveCount: 11
+    lockedByItem: 3
+    lockedByCoin: 1
+    totalItem: 186
+    unlockItems: 1e0000001f000000
+    shipperRate: 0.32
+    playTime: 300
+  - level: 16
+    stoveCount: 11
+    lockedByItem: 3
+    lockedByCoin: 1
+    totalItem: 198
+    unlockItems: 2000000021000000
+    shipperRate: 0.35
+    playTime: 300
+  - level: 17
+    stoveCount: 12
+    lockedByItem: 3
+    lockedByCoin: 0
+    totalItem: 210
+    unlockItems: 2200000023000000
+    shipperRate: 0.38
+    playTime: 300
+  - level: 18
+    stoveCount: 12
+    lockedByItem: 3
+    lockedByCoin: 0
+    totalItem: 222
+    unlockItems: 2400000025000000
+    shipperRate: 0.41
+    playTime: 300
+  - level: 19
+    stoveCount: 12
+    lockedByItem: 3
+    lockedByCoin: 0
+    totalItem: 234
+    unlockItems: 2600000027000000
+    shipperRate: 0.44
+    playTime: 300
+  - level: 20
+    stoveCount: 12
+    lockedByItem: 4
+    lockedByCoin: 0
+    totalItem: 240
+    unlockItems: 14000000
+    shipperRate: 0.47
+    playTime: 300
