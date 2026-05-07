@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameData : MonoBehaviour
 {
     public static GameData Instance;
-
+    public BoosterData boosterData;
     private void Awake()
     {
         if (Instance == null)
@@ -47,4 +47,64 @@ public class GameData : MonoBehaviour
             PlayerPrefs.Save();
         }
     }
+    public int LevelUnlock
+    {
+        get => PlayerPrefs.GetInt("LevelUnlock", 0);
+        set
+        {
+            PlayerPrefs.SetInt("LevelUnlock", value);
+            PlayerPrefs.Save();
+        }
+    }
+
+    #region num Booster
+    private string GetBoosterCountKey(BoosterType type)
+    {
+        return $"Booster_{type}_Count";
+    }
+
+    private string GetBoosterStateKey(BoosterType type)
+    {
+        return $"Booster_{type}_Active";
+    }
+
+    private string GetBoosterTimeKey(BoosterType type)
+    {
+        return $"Booster_{type}_Time";
+    }
+
+    public int GetBoosterCount(BoosterType type)
+    {
+        return PlayerPrefs.GetInt(GetBoosterCountKey(type), 0);
+    }
+
+    public void SetBoosterCount(BoosterType type, int value)
+    {
+        PlayerPrefs.SetInt(GetBoosterCountKey(type), value);
+        PlayerPrefs.Save();
+    }
+
+    public bool IsBoosterActive(BoosterType type)
+    {
+        return PlayerPrefs.GetInt(GetBoosterStateKey(type), 0) == 1;
+    }
+
+    public void SetBoosterActive(BoosterType type, bool value)
+    {
+        PlayerPrefs.SetInt(GetBoosterStateKey(type), value ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
+    public float GetBoosterTime(BoosterType type)
+    {
+        return PlayerPrefs.GetFloat(GetBoosterTimeKey(type), 0f);
+    }
+
+    public void SetBoosterTime(BoosterType type, float value)
+    {
+        PlayerPrefs.SetFloat(GetBoosterTimeKey(type), value);
+        PlayerPrefs.Save();
+    }
+    #endregion
+
 }

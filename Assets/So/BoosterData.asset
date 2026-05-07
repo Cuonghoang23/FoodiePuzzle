@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8554cc83294e9fa4eb093a413f2d0247, type: 3}
+  m_Name: BoosterData
+  m_EditorClassIdentifier: 
+  boosters:
+  - id: 1
+    boosterName: Maget
+    icon: {fileID: 21300000, guid: 9f99c65ec1373cc46b954db68992a4df, type: 3}
+    levelUnlock: 4
+    description: 
+    boosterType: 0
+  - id: 2
+    boosterName: Shuffle
+    icon: {fileID: 21300000, guid: 7521cfe6c1180a84dab8777bc202acdf, type: 3}
+    levelUnlock: 6
+    description: 
+    boosterType: 1
+  - id: 3
+    boosterName: Magic Wand
+    icon: {fileID: 21300000, guid: f5b3a1d2a588f7e42915d6a16a0b0935, type: 3}
+    levelUnlock: 8
+    description: 
+    boosterType: 2
+  - id: 4
+    boosterName: Add Time
+    icon: {fileID: 21300000, guid: c1cf2d9933536674da8a126a837a9314, type: 3}
+    levelUnlock: 10
+    description: 
+    boosterType: 3
+  - id: 5
+    boosterName: Energy Infinity Limited Time
+    icon: {fileID: 21300000, guid: 3e82ca2c871fcca46a5d1ad8b6a18fff, type: 3}
+    levelUnlock: 0
+    description: 
+    boosterType: 4
+  - id: 6
+    boosterName: Maget Pro
+    icon: {fileID: 21300000, guid: fa2831953c7606c4980ac16af0c9102d, type: 3}
+    levelUnlock: 1
+    description: 
+    boosterType: 5
+  - id: 7
+    boosterName: X2 Star
+    icon: {fileID: 21300000, guid: b8901eaafb47a494abf743611c0e7030, type: 3}
+    levelUnlock: 5
+    description: 
+    boosterType: 0
+  - id: 8
+    boosterName: Unlimited Time
+    icon: {fileID: 21300000, guid: 95b2758c827dfd940b61ae34a7926238, type: 3}
+    levelUnlock: 10
+    description: 
+    boosterType: 7

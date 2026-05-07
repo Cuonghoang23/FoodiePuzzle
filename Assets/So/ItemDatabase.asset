@@ -12,124 +12,165 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc87d710eba44274e981e60cc5882915, type: 3}
   m_Name: ItemDatabase
   m_EditorClassIdentifier: 
+  levelDatabase: {fileID: 11400000, guid: 1d0c2e5129d1ad74b982d3b7441a78ae, type: 2}
   items:
   - id: 1
     itemName: Item01
     icon: {fileID: 21300000, guid: 025e69d0d70ec4047b955107bfe2d293, type: 3}
+    levelUnlock: 1
   - id: 2
     itemName: Item02
     icon: {fileID: 21300000, guid: 06d0cf4ea997c5b4ba54f3f6da5e1fc9, type: 3}
+    levelUnlock: 1
   - id: 3
     itemName: Item03
     icon: {fileID: 21300000, guid: 8e016493bf929c04398e797c936c4edc, type: 3}
+    levelUnlock: 1
   - id: 4
     itemName: Item04
     icon: {fileID: 21300000, guid: 6815ebb3de079604287b2221e8ccd263, type: 3}
+    levelUnlock: 2
   - id: 5
     itemName: Item05
     icon: {fileID: 21300000, guid: dc3549f281c666f4bb0bbca5cc95ad01, type: 3}
+    levelUnlock: 2
   - id: 6
     itemName: Item06
     icon: {fileID: 21300000, guid: 73ed0af946b2d784d9b40d1d8b95bef7, type: 3}
+    levelUnlock: 3
   - id: 7
     itemName: Item07
     icon: {fileID: 21300000, guid: 7c595a55594ed154b9f646bea94568aa, type: 3}
+    levelUnlock: 3
   - id: 8
     itemName: Item08
     icon: {fileID: 21300000, guid: 44aeb87a153abbb4d87e531d9ff486f6, type: 3}
+    levelUnlock: 4
   - id: 9
     itemName: Item09
     icon: {fileID: 21300000, guid: 9e429157352e63540b4ab9a21a326c5c, type: 3}
+    levelUnlock: 4
   - id: 10
     itemName: Item10
     icon: {fileID: 21300000, guid: 21da74ff09248c747b7d97113b9be8f9, type: 3}
+    levelUnlock: 5
   - id: 11
     itemName: Item11
     icon: {fileID: 21300000, guid: 2551915cba6d82a41af918ac1ec1fce6, type: 3}
+    levelUnlock: 5
   - id: 12
     itemName: Item12
     icon: {fileID: 21300000, guid: 7185b53829c49a049b0205f5f1f49d9f, type: 3}
+    levelUnlock: 7
   - id: 13
     itemName: Item13
     icon: {fileID: 21300000, guid: 1dacab036e45c6647b4c8230062bccc9, type: 3}
+    levelUnlock: 7
   - id: 14
     itemName: Item14
     icon: {fileID: 21300000, guid: 73f3701bf35df8f46b38fa548f54afc0, type: 3}
+    levelUnlock: 7
   - id: 15
     itemName: Item15
     icon: {fileID: 21300000, guid: 60518e06fc09ebe47b82e3fa3cb9957c, type: 3}
+    levelUnlock: 7
   - id: 16
     itemName: Item16
     icon: {fileID: 21300000, guid: fa8517f2aab1c3244bce12e91c11efba, type: 3}
+    levelUnlock: 8
   - id: 17
     itemName: Item17
     icon: {fileID: 21300000, guid: 46e605e3f42a74e4ea753f7dedd5e8ca, type: 3}
+    levelUnlock: 8
   - id: 18
     itemName: Item18
     icon: {fileID: 21300000, guid: 358a10ae4efbb6a43bdc2b58fac0ac5b, type: 3}
+    levelUnlock: 9
   - id: 19
     itemName: Item19
     icon: {fileID: 21300000, guid: 2c946e236fdabb84396926107d49a2e2, type: 3}
+    levelUnlock: 9
   - id: 20
     itemName: Item20
     icon: {fileID: 21300000, guid: e9dd1b75a077b4b4c9c52c8875906caa, type: 3}
+    levelUnlock: 10
   - id: 21
     itemName: Item21
     icon: {fileID: 21300000, guid: 42e2d4acbdda34446bc2891c46a11c9c, type: 3}
+    levelUnlock: 10
   - id: 22
     itemName: Item22
     icon: {fileID: 21300000, guid: 2dcf747eab51ea34ba681a1cd1cfe323, type: 3}
+    levelUnlock: 11
   - id: 23
     itemName: Item23
     icon: {fileID: 21300000, guid: a8c04d8950940f34180644516df34a6f, type: 3}
+    levelUnlock: 11
   - id: 24
     itemName: Item24
     icon: {fileID: 21300000, guid: b4535e7b142e05c4ba33c77560fe0bc1, type: 3}
+    levelUnlock: 12
   - id: 25
     itemName: Item25
     icon: {fileID: 21300000, guid: 4af39acdcfb39ab48a995a7bd4b54f30, type: 3}
+    levelUnlock: 12
   - id: 26
     itemName: Item26
     icon: {fileID: 21300000, guid: 74b4b08295f17404db4f180d328e6142, type: 3}
+    levelUnlock: 13
   - id: 27
     itemName: Item27
     icon: {fileID: 21300000, guid: c916ef4338ea6684cb7be39e5a08145c, type: 3}
+    levelUnlock: 13
   - id: 28
     itemName: Item28
     icon: {fileID: 21300000, guid: c89c2c38a5913804ea345f7d1b82e273, type: 3}
+    levelUnlock: 14
   - id: 29
     itemName: Item29
     icon: {fileID: 21300000, guid: 9a28bc5b50ab4974da6c349c5cb4d97b, type: 3}
+    levelUnlock: 14
   - id: 30
     itemName: Item30
     icon: {fileID: 21300000, guid: 742b8d978fd5acc4ebc0b217a9c728cf, type: 3}
+    levelUnlock: 15
   - id: 31
     itemName: Item31
     icon: {fileID: 21300000, guid: 1283c757e0cc8964cb2c59cc7e2ec35f, type: 3}
+    levelUnlock: 15
   - id: 32
     itemName: Item32
     icon: {fileID: 21300000, guid: 3ba8247cab73f6345a4f1857e1133454, type: 3}
+    levelUnlock: 16
   - id: 33
     itemName: Item33
     icon: {fileID: 21300000, guid: 5b584483d82c9aa48a0b5200933fb3ce, type: 3}
+    levelUnlock: 16
   - id: 34
     itemName: Item34
     icon: {fileID: 21300000, guid: 3a7ee8543405a5b4eaf573a1447a6058, type: 3}
+    levelUnlock: 17
   - id: 35
     itemName: Item35
     icon: {fileID: 21300000, guid: 338d5caa4c39f6f429c5d951f7d36711, type: 3}
+    levelUnlock: 17
   - id: 36
     itemName: Item36
     icon: {fileID: 21300000, guid: 2a0f4cdb4fd2f7b4eb65e31eaddfcfff, type: 3}
+    levelUnlock: 18
   - id: 37
     itemName: Item37
     icon: {fileID: 21300000, guid: d056beb740a807c4a93dd14426dc2ef7, type: 3}
+    levelUnlock: 18
   - id: 38
     itemName: Item38
     icon: {fileID: 21300000, guid: 434b48af55d5aca4f8a001673498f87e, type: 3}
+    levelUnlock: 19
   - id: 39
     itemName: Item39
     icon: {fileID: 21300000, guid: 11708dd1dda79d145b237c836726ab1c, type: 3}
+    levelUnlock: 19
   - id: 40
     itemName: Item40
     icon: {fileID: 21300000, guid: 5e09b23b20018f245a69971e38a9a6e4, type: 3}
+    levelUnlock: 20

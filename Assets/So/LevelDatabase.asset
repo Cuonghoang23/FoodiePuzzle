@@ -170,6 +170,6 @@ MonoBehaviour:
     lockedByItem: 4
     lockedByCoin: 0
     totalItem: 240
-    unlockItems: 14000000
+    unlockItems: 28000000
     shipperRate: 0.47
     playTime: 300

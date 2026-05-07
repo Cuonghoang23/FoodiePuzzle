@@ -8,6 +8,7 @@ using UnityEditor;
 [CreateAssetMenu(fileName = "ItemDatabase", menuName = "Game/Item Database")]
 public class ItemDatabase : ScriptableObject
 {
+    public LevelDatabase levelDatabase;
     public List<ItemData> items = new List<ItemData>();
 
 #if UNITY_EDITOR
@@ -40,9 +41,45 @@ public class ItemDatabase : ScriptableObject
         EditorUtility.SetDirty(this);
     }
 #endif
+#if UNITY_EDITOR
+    [ContextMenu("🔥 Sync Level Unlock From LevelDatabase")]
+    public void SyncLevelUnlock()
+    {
+        if (levelDatabase == null)
+        {
+            Debug.LogError("❌ LevelDatabase is NULL");
+            return;
+        }
 
+        foreach (var level in levelDatabase.levels)
+        {
+            foreach (var itemId in level.unlockItems)
+            {
+                var item = items.Find(i => i.id == itemId);
+                if (item != null)
+                {
+                    item.levelUnlock = level.level;
+                }
+                else
+                {
+                    Debug.LogWarning("Not Item");
+                }
+            }
+        }
+
+        Debug.Log("✅ Sync Item Level Unlock Done!");
+
+        EditorUtility.SetDirty(this);
+    }
+#endif
     public ItemData GetItem(int id)
     {
         return items.Find(i => i.id == id);
     }
+
+    public List<ItemData> GetItemUnlock(int playerLevel)
+    {
+        return items.FindAll(i => i.levelUnlock == playerLevel);
+    }
+
 }
