@@ -1,23 +1,37 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class UIBuyBooster : MonoBehaviour
+public class UIBuyBooster : UIBase
 {
     public static UIBuyBooster Instance;
 
-    public TextMeshProUGUI textTile , coinBuy;
-    private BoosterItem itemData ;
+    public TextMeshProUGUI txtNameBooster , txtCoinBuy, txtNumbuy;
+    private BoosterItem itemData;
+    
+    
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         Instance = this;
     }
 
-    public void Init( int idBosster)
+    public void Init(int idBooster)
     {
-        itemData = GameData.Instance.boosterData.GetBoosterById(idBosster);
+        Init(idBooster, 1);
     }
+
+    public void Init(int idBooster, int quantity)
+    {
+        itemData = GameData.Instance.boosterData.GetBoosterById(idBooster);
+
+        txtNameBooster.text = itemData.boosterName;
+        txtCoinBuy.text = (itemData.coin * quantity).ToString();
+        txtNumbuy.text = "x" + quantity.ToString();
+    }
+
+
 
 }

@@ -18,6 +18,7 @@ public class BoosterItem
     public int id;
     public string boosterName;
     public Sprite icon;
+    public int coin;
 
     public int levelUnlock;
     public string description;

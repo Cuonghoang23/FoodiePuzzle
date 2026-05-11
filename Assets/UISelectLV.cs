@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UISelectLV : MonoBehaviour
+public class UISelectLV : UIBase
 {
     public List<ItemBtnLV> items;
     

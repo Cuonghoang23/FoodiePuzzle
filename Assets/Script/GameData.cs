@@ -49,7 +49,7 @@ public class GameData : MonoBehaviour
     }
     public int LevelUnlock
     {
-        get => PlayerPrefs.GetInt("LevelUnlock", 0);
+        get => PlayerPrefs.GetInt("LevelUnlock", 1);
         set
         {
             PlayerPrefs.SetInt("LevelUnlock", value);

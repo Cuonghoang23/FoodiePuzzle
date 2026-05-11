@@ -22,12 +22,11 @@ public class ItemSelectBoosterUI : MonoBehaviour
             Debug.LogError("Booster not found ID: " + boosterId);
             return;
         }
-
         bool isLock = GameData.Instance.LevelUnlock < itemData.levelUnlock;
         lockBooster.SetActive(isLock);
         unLockBooster.SetActive(!isLock);
 
-        textLevelUnlock.text = itemData.levelUnlock.ToString();
+        textLevelUnlock.text = "Level "+itemData.levelUnlock.ToString();
 
         int count = GameData.Instance.GetBoosterCount(itemData.boosterType);
         textNumBooster.text = count > 0 ? count.ToString() : "+";
