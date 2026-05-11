@@ -1,18 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class UISetting : MonoBehaviour
+public class UISetting : UIBase
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("Sound")]
+    [SerializeField] private GameObject soundOn;
+    [SerializeField] private GameObject soundOff;
+
+    [Header("Vibration")]
+    [SerializeField] private GameObject vibrationOn;
+    [SerializeField] private GameObject vibrationOff;
+
+    private void Start()
     {
-        
+        RefreshUI();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ButtonSoundClick()
     {
-        
+        GameData.Instance.IsSound = !GameData.Instance.IsSound;
+        RefreshUI();
+    }
+
+
+    public void ButtonVibrationClick()
+    {
+        GameData.Instance.IsVibration = !GameData.Instance.IsVibration;
+        RefreshUI();
+    }
+
+    private void RefreshUI()
+    {
+        bool isSound = GameData.Instance.IsSound;
+        bool isVibration = GameData.Instance.IsVibration;
+
+        if (soundOn != null) soundOn.SetActive(isSound);
+        if (soundOff != null) soundOff.SetActive(!isSound);
+
+        if (vibrationOn != null) vibrationOn.SetActive(isVibration);
+        if (vibrationOff != null) vibrationOff.SetActive(!isVibration);
     }
 }

@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIBuyBooster : UIBase
 {
     public static UIBuyBooster Instance;
 
     public TextMeshProUGUI txtNameBooster , txtCoinBuy, txtNumbuy;
+    public Image imgBooster;
+
     private BoosterItem itemData;
     
     
@@ -30,6 +33,7 @@ public class UIBuyBooster : UIBase
         txtNameBooster.text = itemData.boosterName;
         txtCoinBuy.text = (itemData.coin * quantity).ToString();
         txtNumbuy.text = "x" + quantity.ToString();
+        imgBooster.sprite = itemData.icon;
     }
 
 

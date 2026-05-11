@@ -107,4 +107,40 @@ public class GameData : MonoBehaviour
     }
     #endregion
 
+    #region setting
+
+    public bool IsMusic
+    {
+        get => PlayerPrefs.GetInt("IsMusicOn", 1) == 1;
+        set
+        {
+            PlayerPrefs.SetInt("IsMusicOn", value ? 1 : 0);
+            PlayerPrefs.Save();
+        }
+    }
+
+    public bool IsSound
+    {
+        get => PlayerPrefs.GetInt("IsSoundOn", 1) == 1;
+        set
+        {
+            PlayerPrefs.SetInt("IsSoundOn", value ? 1 : 0);
+            PlayerPrefs.Save();
+        }
+    }
+
+    public bool IsVibration
+    {
+        get => PlayerPrefs.GetInt("IsVibrationOn", 1) == 1;
+        set
+        {
+            PlayerPrefs.SetInt("IsVibrationOn", value ? 1 : 0);
+            PlayerPrefs.Save();
+        }
+    }
+
+    #endregion
+
+
+
 }

@@ -39,6 +39,8 @@ public class ItemSelectBoosterUI : MonoBehaviour
 
     public void ButtonSelectClick(int id)
     {
-        UIBuyBooster.Instance.Init(id);
+        UIBuyBooster uiBuyBooster = UIManager.Instance.GetUI<UIBuyBooster>();
+        uiBuyBooster.Init(boosterId);
+        uiBuyBooster.Show();
     }
 }

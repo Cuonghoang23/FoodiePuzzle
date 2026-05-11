@@ -50,6 +50,7 @@ public class UIBase : MonoBehaviour
     public virtual void Exit()
     {
         Hide();
+        // AudioManager.Instance.PlaySound("ButtonClick");
     }
 
     // ================= SHOW ANIMATION =================

@@ -1,11 +1,16 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class UIPlay : UIBase
 {
     public static UIPlay instance;
-    [Header("Scene")]
+
+    public TextMeshProUGUI txtNameLevel;
+
     [SerializeField] private string sceneName = "Loading";
+
+
 
     protected override void Awake()
     {
@@ -24,5 +29,17 @@ public class UIPlay : UIBase
         SceneManager.LoadScene(sceneName);
     }
 
+    public void SetNameLevel()
+    {
+        int currentLevel = GameData.Instance.CurrentLevel;
+        txtNameLevel.text = "Level " + currentLevel.ToString();
+    }
+
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        SetNameLevel();
+    }
 
 }
