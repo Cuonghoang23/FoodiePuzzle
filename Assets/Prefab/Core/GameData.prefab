@@ -45,3 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boosterData: {fileID: 11400000, guid: deb98eb866293d5469baf4be92503e7b, type: 2}
+  itemDatabase: {fileID: 11400000, guid: e81f14e82ff49854a80c566155a978cc, type: 2}
+  chestDatabase: {fileID: 11400000, guid: 40d428b0fd6cced4f9c3615aedfb8143, type: 2}

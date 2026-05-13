@@ -1,5 +1,7 @@
 ﻿using DG.Tweening;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIMainMenu : MonoBehaviour
 {
@@ -12,6 +14,24 @@ public class UIMainMenu : MonoBehaviour
 
     [SerializeField] private GameObject txtHome;
     [SerializeField] private GameObject txtShop;
+
+    [Header("Energy")]
+    [SerializeField] private TextMeshProUGUI txtNumEnergy; 
+    [SerializeField] private TextMeshProUGUI txtTimeAddEnergy;
+
+    [SerializeField] private int maxEnergy = 5;
+    [SerializeField] private int currentEnergy = 5;
+    [SerializeField] private float timeAddEnergy = 15 * 60f; // 15 phút
+
+    private float timerEnergy;
+
+    [Header("Chess")]
+    [SerializeField] private TextMeshProUGUI txtProgressChest;
+    [SerializeField] private Image imgProgressChest;
+
+    [SerializeField] private int currentChestIndex = 0;
+    [SerializeField] private int currentStarChest = 0;
+    private ChestDatabase chestDatabase;
 
     [Header("Animation")]
     [SerializeField] private float selectedScale = 1f;
@@ -35,16 +55,234 @@ public class UIMainMenu : MonoBehaviour
     {
         Instance = this;
 
-        // Lưu vị trí gốc
         homeDefaultPos = btnHome.anchoredPosition;
         shopDefaultPos = btnShop.anchoredPosition;
     }
 
     private void Start()
     {
-        // Mặc định chọn Home
         SelectButton(btnHome, btnShop, txtHome, txtShop, true);
+
+        LoadEnergy();
+        UpdateEnergyUI();
+
+        LoadChestProgress();
+        UpdateChestProgressUI();
     }
+
+    private void Update()
+    {
+        UpdateEnergyTimer();
+    }
+
+    #region Energy
+    private void LoadEnergy()
+    {
+        currentEnergy = GameData.Instance.NumEnergy;
+
+        string savedTime = GameData.Instance.TimeADDEnergy;
+
+        if (currentEnergy >= maxEnergy)
+        {
+            currentEnergy = maxEnergy;
+            timerEnergy = timeAddEnergy;
+            return;
+        }
+
+        if (!string.IsNullOrEmpty(savedTime))
+        {
+            System.DateTime lastTime = System.DateTime.Parse(savedTime);
+            System.TimeSpan timePassed = System.DateTime.Now - lastTime;
+
+            int energyToAdd = Mathf.FloorToInt((float)timePassed.TotalSeconds / timeAddEnergy);
+
+            if (energyToAdd > 0)
+            {
+                currentEnergy += energyToAdd;
+
+                if (currentEnergy >= maxEnergy)
+                {
+                    currentEnergy = maxEnergy;
+                    timerEnergy = timeAddEnergy;
+                }
+                else
+                {
+                    float remainSeconds = (float)timePassed.TotalSeconds % timeAddEnergy;
+                    timerEnergy = timeAddEnergy - remainSeconds;
+
+                    SaveEnergyStartTime();
+                }
+            }
+            else
+            {
+                timerEnergy = timeAddEnergy - (float)timePassed.TotalSeconds;
+            }
+        }
+        else
+        {
+            timerEnergy = timeAddEnergy;
+            SaveEnergyStartTime();
+        }
+
+        SaveEnergy();
+    }
+
+    private void UpdateEnergyTimer()
+    {
+        if (currentEnergy >= maxEnergy)
+        {
+            txtTimeAddEnergy.text = "Full";
+            return;
+        }
+
+        timerEnergy -= Time.deltaTime;
+
+        if (timerEnergy <= 0)
+        {
+            AddEnergy(1);
+        }
+
+        UpdateEnergyUI();
+    }
+
+    public void AddEnergy(int amount)
+    {
+        currentEnergy += amount;
+
+        if (currentEnergy >= maxEnergy)
+        {
+            currentEnergy = maxEnergy;
+            timerEnergy = timeAddEnergy;
+        }
+        else
+        {
+            timerEnergy = timeAddEnergy;
+            SaveEnergyStartTime();
+        }
+
+        SaveEnergy();
+        UpdateEnergyUI();
+    }
+
+    public bool UseEnergy(int amount)
+    {
+        if (currentEnergy < amount)
+            return false;
+
+        currentEnergy -= amount;
+
+        if (currentEnergy < maxEnergy)
+        {
+            timerEnergy = timeAddEnergy;
+            SaveEnergyStartTime();
+        }
+
+        SaveEnergy();
+        UpdateEnergyUI();
+
+        return true;
+    }
+
+    private void UpdateEnergyUI()
+    {
+        txtNumEnergy.text = currentEnergy.ToString();
+
+        if (currentEnergy >= maxEnergy)
+        {
+            txtTimeAddEnergy.text = "Full";
+        }
+        else
+        {
+            int minutes = Mathf.FloorToInt(timerEnergy / 60f);
+            int seconds = Mathf.FloorToInt(timerEnergy % 60f);
+
+            txtTimeAddEnergy.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+        }
+    }
+
+    private void SaveEnergy()
+    {
+        GameData.Instance.NumEnergy = currentEnergy;
+    }
+
+    private void SaveEnergyStartTime()
+    {
+        GameData.Instance.TimeADDEnergy = System.DateTime.Now.ToString();
+    }
+    #endregion
+
+    #region chest
+    private void LoadChestProgress()
+    {
+        chestDatabase = GameData.Instance.ChestDatabase;
+        currentStarChest = GameData.Instance.NumStarChest;
+        currentChestIndex = GameData.Instance.CurrentChestIndex;
+    }
+
+    [ContextMenu("Test Add Star")]
+    public void TesAddStar()
+    {
+               AddStarChest(50);
+    }
+
+    public void AddStarChest(int amount)
+    {
+        currentStarChest += amount;
+
+        SaveChestProgress();
+        UpdateChestProgressUI();
+    }
+
+    private void UpdateChestProgressUI()
+    {
+        ChestData chest = chestDatabase.chests[currentChestIndex];
+
+        int needStar = chest.priceOpen;
+
+        txtProgressChest.text = currentStarChest + "/" + needStar;
+
+        float fill = Mathf.Clamp01((float)currentStarChest / needStar);
+        imgProgressChest.fillAmount = fill;
+    }
+
+    public bool CanOpenChest()
+    {
+        ChestData chest = chestDatabase.chests[currentChestIndex];
+        return currentStarChest >= chest.priceOpen;
+    }
+
+
+    [ContextMenu("Test Open Chest")]
+    public void OpenChest()
+    {
+        ChestData chest = chestDatabase.chests[currentChestIndex];
+
+        if (currentStarChest < chest.priceOpen)
+        {
+            Debug.Log("Chưa đủ sao để mở chest");
+            return;
+        }
+
+        currentStarChest -= chest.priceOpen;
+        currentChestIndex++;
+
+        // TODO: cộng thưởng
+        // GameData.Instance.Coin += chest.coinReward;
+        // Random booster theo chest.boosterRandomCount
+
+        SaveChestProgress();
+        UpdateChestProgressUI();
+
+        Debug.Log("Mở chest thành công");
+    }
+
+    private void SaveChestProgress()
+    {
+        GameData.Instance.NumStarChest = currentStarChest;
+        GameData.Instance.CurrentChestIndex = currentChestIndex;
+    }
+
+    #endregion
 
     public void ButtonHomeClick()
     {
@@ -155,5 +393,13 @@ public class UIMainMenu : MonoBehaviour
         moveTween?.Kill();
         homeTween?.Kill();
         shopTween?.Kill();
+    }
+
+    private void OnApplicationQuit()
+    {
+        SaveEnergy();
+
+        if (currentEnergy < maxEnergy)
+            SaveEnergyStartTime();
     }
 }

@@ -6,6 +6,13 @@ public class GameData : MonoBehaviour
 {
     public static GameData Instance;
     public BoosterData boosterData;
+
+    [SerializeField] private ItemDatabase itemDatabase;
+    public ItemDatabase ItemDatabase => itemDatabase;
+
+    [SerializeField] private ChestDatabase chestDatabase;
+    public ChestDatabase ChestDatabase => chestDatabase;
+
     private void Awake()
     {
         if (Instance == null)
@@ -105,6 +112,27 @@ public class GameData : MonoBehaviour
         PlayerPrefs.SetFloat(GetBoosterTimeKey(type), value);
         PlayerPrefs.Save();
     }
+
+    public int NumEnergy
+    {
+        get => PlayerPrefs.GetInt("NumEnergy", 5);
+        set
+        {
+            PlayerPrefs.SetInt("NumEnergy", value);
+            PlayerPrefs.Save();
+        }
+    }
+    public string TimeADDEnergy
+    {
+        get => PlayerPrefs.GetString("TimeADDEnergy", "");
+        set
+        {
+            PlayerPrefs.SetString("TimeADDEnergy", value);
+            PlayerPrefs.Save();
+        }
+    }
+
+
     #endregion
 
     #region setting
@@ -141,6 +169,25 @@ public class GameData : MonoBehaviour
 
     #endregion
 
+    public int NumStarChest
+    {
+        get => PlayerPrefs.GetInt("NumStarChest", 0);
+        set
+        {
+            PlayerPrefs.SetInt("NumStarChest", value);
+            PlayerPrefs.Save();
+        }
+    }
+
+    public int CurrentChestIndex
+    {
+        get => PlayerPrefs.GetInt("CurrentChestIndex", 0);
+        set
+        {
+            PlayerPrefs.SetInt("CurrentChestIndex", value);
+            PlayerPrefs.Save();
+        }
+    }
 
 
 }
