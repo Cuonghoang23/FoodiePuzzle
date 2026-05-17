@@ -53,7 +53,7 @@ MonoBehaviour:
     unlockItems: 0a0000000b000000
     shipperRate: 0
     playTime: 300
-  - level: 7
+  - level: 6
     stoveCount: 9
     lockedByItem: 1
     lockedByCoin: 1
